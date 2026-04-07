@@ -47,6 +47,10 @@ app.get("/get_videogames", (req, res) => {
 app.post("/create_videogame", (req, res) => {
     const newGame = req.body;
 
+    if ((newGame.name == "" || newGame.name == null) || (newGame.genre == "" || newGame.genre == null) || (newGame.rating == null) || (newGame.launchy_date == "" || newGame.launchy_date== null) || (newGame.publisher == "" || newGame.publisher == null) || (newGame.platforms == "" || newGame.platforms == null)){
+        return res.status(500).send("Dados necessários faltando");
+    }
+
     if (newGame.rating > 5.0) return res.status(500).send("Avaliação máxima permitida é 5,0");
 
     db.query("INSERT INTO videogames (name, genre, rating, launchy_date, publisher, platforms, description) VALUES (?, ?, ?, ?, ?, ?, ?) ", [newGame.name, newGame.genre, newGame.rating, newGame.launchy_date, newGame.publisher, newGame.platforms, newGame.description], (err, result) =>{
@@ -69,6 +73,10 @@ app.put("/update_videogame/:id", (req, res) => {
     const id = req.params.id;
     if (id <= 0) return res.status(500).send("Id inválido");
     const newGame = req.body;
+
+    if ((newGame.name == "" || newGame.name == null) || (newGame.genre == "" || newGame.genre == null) || (newGame.rating == null) || (newGame.launchy_date == "" || newGame.launchy_date== null) || (newGame.publisher == "" || newGame.publisher == null) || (newGame.platforms == "" || newGame.platforms == null)){
+        return res.status(500).send("Dados necessários faltando");
+    }
 
     if (newGame.rating > 5.0) return res.status(500).send("Avaliação máxima permitida é 5,0");
     
