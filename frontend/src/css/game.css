@@ -1,0 +1,15 @@
+.game-info{
+    color: #ffffff;
+    background-color: black;
+    padding: 5px;
+    gap: 2px;
+}
+
+.game-info:hover {
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+}
+
+.game-btn {
+    display: flex;
+    justify-content: space-between;
+}
