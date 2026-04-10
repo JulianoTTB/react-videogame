@@ -64,7 +64,7 @@ function AtualizarGame(props) {
           <input
             type="number"
             id="rating"
-            placeholder="Avaliação máxima de 5.0"
+            placeholder="Máxima de 5.0"
             step={"any"}
             name="rating"
             value={form.rating}
