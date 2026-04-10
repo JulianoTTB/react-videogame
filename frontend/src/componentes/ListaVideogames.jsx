@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
 import Game from "./game";
 import "../css/lista.css";
-function ListaVideogames() {
+function ListaVideogames(props) {
   const [data, setData] = useState([]);
-  const [anyErr, setAnyErr] = useState(false);
-  const [error, setError] = useState("");
 
   useEffect(() => {
     getGames();
@@ -15,10 +13,11 @@ function ListaVideogames() {
     fetch(url, {
       method: "DELETE",
     })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((err) => console.log(err));
+      .then((response) => response.text())
+      .then(data => alert(data))
+      .catch((err) => 
+        alert(err.name + ": " + err.message)
+      );
     setData((prev) => prev.filter((game) => game.id !== id));
   }
 
@@ -27,23 +26,20 @@ function ListaVideogames() {
       .then((data) => data.json())
       .then((response) => setData(response))
       .catch((err) => {
-        setAnyErr(true);
-        setError(err);
+        alert(err.name + ": " + err.message)
       });
   }
 
   return (
     <>
       <div className="lista">
-        {!anyErr && data.length > 0 ? (
+        {data.length > 0 ? (
           data.map((game) => (
-            <Game game={game} deletarGame={deletarGame}></Game>
+            <Game game={game} deletarGame={deletarGame} updateGame={props.updateGame} exibirGame={props.exibirGame}></Game>
           ))
-        ) : anyErr ? (
-          <p style={{ fontSize: 24, color: "#ffffff" }}>{error}</p>
-        ) : (
+        ) : 
           <p style={{ fontSize: 48, color: "#ffffff" }}>Lista vazia</p>
-        )}
+       }
       </div>
     </>
   );

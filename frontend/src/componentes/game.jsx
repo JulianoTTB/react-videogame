@@ -8,22 +8,19 @@ function Game(props) {
       <div
         className="game-info"
         onClick={() => {
-          alert("hey");
+          props.exibirGame(props.game);
         }}
       >
         <p>Nome: {props.game.name}</p>
         <p>Gênero: {props.game.genre}</p>
         <p>Avaliação: {props.game.rating}/5</p>
         <p>Data de lançamento: {data}</p>
-        <p>Publicadora: {props.game.publisher}</p>
-        <p>Plataformas: {props.game.platforms}</p>
-        <p>Descrição: {props.game.description}</p>
         <div className="game-btn">
           <button
             className="btn-update"
             onClick={(e) => {
               e.stopPropagation();
-              alert("Hi");
+              props.updateGame(props.game)
             }}
           >
             Atualizar

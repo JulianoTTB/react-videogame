@@ -1,0 +1,39 @@
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    height: 70vh;
+}
+
+    
+form {
+    display: grid;
+    grid-template-columns: repeat(2, 0fr);
+    padding: 10px;
+    gap: 10px;
+    background-color: #ede4e4;
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
+    border-radius: 5%;
+}
+
+input {
+    padding: 5px;
+}
+
+textarea {
+    padding: 5px;
+}
+
+.btn-submit {
+    background-color: green;
+    cursor: pointer;
+    color: #fff;
+    justify-self: end;
+    grid-column: 1 / -1;
+}
+
+.btn-submit:hover {
+    background-color: lightgreen;
+}

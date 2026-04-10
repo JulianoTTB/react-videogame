@@ -25,11 +25,10 @@ function CadastrarGame() {
         description: description,
       }),
     })
-      .then((response) => {
-        console.log(response);
-      })
+      .then((response) => response.text())
+      .then(data => alert(data))
       .catch((err) => {
-        console.log(err);
+        alert(err.name + ": " + err.message)
       });
   }
   return (
@@ -65,8 +64,8 @@ function CadastrarGame() {
             required
           ></input>
           <label htmlFor="description">Descrição: </label>
-          <input type="text" id="description" placeholder="Descrição"></input>
-          <button type="submit">Cadastrar</button>
+          <textarea id="description" placeholder="Descrição" rows={5}></textarea>
+          <button className="btn-submit" type="submit">Cadastrar</button>
         </form>
       </div>
     </>

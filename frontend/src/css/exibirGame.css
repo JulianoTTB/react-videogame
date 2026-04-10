@@ -1,0 +1,44 @@
+.game {
+    display: flex;
+    justify-content: center;
+    min-height: 100%;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.game-card {
+  max-width: 400px;
+  background: #1e1e2f;
+  color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.game-title {
+  margin-bottom: 12px;
+  font-size: 28px;
+  color: #7c5cff;
+}
+
+.game-dados{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+
+.game-description {
+  font-size: 14px;
+  opacity: 0.85;
+  line-height: 1.4;
+}
+
+.rating {
+  background: gold;
+  color: black;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-weight: bold;
+}
